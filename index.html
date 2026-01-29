@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiskManager Pro | ASC Risk Management & Compliance Consulting</title>
+    <meta name="description" content="Expert risk management consulting for Ambulatory Surgery Centers. Survey-ready compliance programs, policy development, and training.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #142238;
+            --blue: #2563eb;
+            --blue-light: #3b82f6;
+            --teal: #0d9488;
+            --gold: #f59e0b;
+            --white: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(13, 148, 136, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 100px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            color: var(--blue-light);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.1s backwards;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--blue-light) 0%, var(--teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-400);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+            box-shadow: 0 4px 24px rgba(37, 99, 235, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Services */
+        .services {
+            padding: 80px 0;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--teal);
+            margin-bottom: 16px;
+        }
+
+        .services h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.25rem;
+            margin-bottom: 48px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(37, 99, 235, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(13, 148, 136, 0.2) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+        }
+
+        /* Why Section */
+        .why {
+            padding: 80px 0;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .why-item {
+            text-align: center;
+        }
+
+        .why-number {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--blue-light) 0%, var(--teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .why-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .why-item p {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(13, 148, 136, 0.1) 100%);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 24px;
+            padding: 64px 48px;
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: var(--gray-400);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            color: var(--navy);
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .email-link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 80px;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-box {
+                padding: 48px 24px;
+            }
+
+            .services h2, .why h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">⚕</div>
+                RiskManager Pro
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="badge">ASC Risk Management & Compliance</div>
+                <h1>Get Your Surgery Center <span>Survey-Ready</span></h1>
+                <p>Expert risk management consulting for Ambulatory Surgery Centers. Comprehensive compliance programs that protect your facility and patients.</p>
+                <a href="mailto:riskmanagerpro.ai@gmail.com?subject=Consultation%20Request" class="cta-button">
+                    Schedule a Consultation
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="section-label">Services</div>
+                <h2>Comprehensive Risk Management Solutions</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📋</div>
+                        <h3>Compliance Gap Assessment</h3>
+                        <p>Thorough evaluation against Florida and Federal requirements including F.S. 395.0197, 59A-5, and 42 CFR 416.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📄</div>
+                        <h3>Policy & Procedure Development</h3>
+                        <p>Complete risk management policy manuals customized to your facility and aligned with AHCA survey requirements.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎯</div>
+                        <h3>Survey Preparation</h3>
+                        <p>Mock surveys, staff training, and documentation review to ensure you're ready when surveyors arrive.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Program Implementation</h3>
+                        <p>90-day guided implementation with weekly milestones, forms deployment, and staff education.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔄</div>
+                        <h3>Ongoing Support</h3>
+                        <p>Monthly compliance monitoring, quarterly reporting templates, and regulatory update alerts.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏥</div>
+                        <h3>Multi-Site Programs</h3>
+                        <p>Scalable solutions for ASC management companies overseeing multiple facilities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why">
+            <div class="container">
+                <div class="section-label">Why RiskManager Pro</div>
+                <h2>Built by Risk Management Professionals</h2>
+                <div class="why-grid">
+                    <div class="why-item">
+                        <div class="why-number">89+</div>
+                        <h4>ASCs Supported</h4>
+                        <p>Across Florida surgery centers</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-number">100%</div>
+                        <h4>Survey Success</h4>
+                        <p>Clients pass with zero deficiencies</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-number">20+</div>
+                        <h4>Years Experience</h4>
+                        <p>In healthcare risk management</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-number">24hr</div>
+                        <h4>Response Time</h4>
+                        <p>For urgent compliance questions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Ready to Strengthen Your Compliance?</h2>
+                    <p>Schedule a free 30-minute consultation to discuss your facility's risk management needs.</p>
+                    <a href="mailto:riskmanagerpro.ai@gmail.com?subject=Free%20Consultation%20Request&body=Hi%2C%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20ASC%20risk%20management%20services.%0A%0AFacility%20Name%3A%20%0ANumber%20of%20ORs%3A%20%0ACurrent%20Challenge%3A%20%0A%0AThank%20you!" class="email-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        riskmanagerpro.ai@gmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 RiskManager Pro. ASC Risk Management & Compliance Consulting.</p>
+        </div>
+    </footer>
+</body>
+</html>
